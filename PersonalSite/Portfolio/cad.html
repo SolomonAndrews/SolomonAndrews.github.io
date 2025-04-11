@@ -1,0 +1,252 @@
+<!-- cad.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My CAD Portfolio - Solomon Andrews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    .portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+</style>
+<body>
+  <!-- Add Font Awesome for LinkedIn icon (only once in your <head> if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<header style="background: #001f3f; color: #ffffff; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); position: relative;">
+  <style>
+    .logo {
+      height: 2em;
+      width: auto;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00509e;
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        background: #001f3f;
+      }
+
+      nav.show {
+        max-height: 500px;
+        padding-top: 1rem;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-title {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    /* Optional LinkedIn hover color */
+    nav a .fa-linkedin {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover .fa-linkedin {
+      color: #00509e;
+    }
+  </style>
+
+  <div class="nav-title">
+    <img src="pro_logo.png" alt="Logo" class="logo">
+    Solomon Andrews
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="../index.html">Home</a>
+    <a href="posts.html">Posts</a>
+    <a href="cad.html">My CAD</a>
+    <a href="resume.html">Resume</a>
+    <a href="about.html">About</a>
+    <a href="https://www.linkedin.com/in/solomon-andrews" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+  </nav>
+</header>
+
+
+  <section class="section" id="cad">
+    <h2 class="section-title">MECHANICAL DESIGN PORTFOLIO</h2>
+    <div class="portfolio">
+
+      <div class="portfolio-item">
+        <h3>Nordson Toolchanger</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="nordson_tc" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/12f1e4f663a241f2803c219d877513c1/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Custom 3d printer toolchanging receiver designed for holding a Nordson High Speed Dispenser</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Sheet Metal Test Part</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe 
+            title="2023_SHEETMETAL_TESTPART" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking 
+            execution-while-out-of-viewport 
+            execution-while-not-rendered 
+            web-share 
+            src="https://sketchfab.com/models/f2f2a31310ec4ee8b0554239452b3b9c/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Sheet metal enclosure design with complex cutouts and bend allowances for fabrication testing.</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Slider with Tail</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="slider_w_tail" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/6df5acdd6be2472a9817bac318dc73cc/embed?annotations_visible=1"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Soft Robotic Lamprey half, with tail thrust attachment</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Microfluidic Chip</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe 
+            title="microfluidic_chip" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking 
+            execution-while-out-of-viewport 
+            execution-while-not-rendered 
+            web-share 
+            src="https://sketchfab.com/models/86ec580bba404a1898003a37281cc2b2/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Custom microfluidic chip designed for advanced polymer research at Sandia.</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Modified E3D Extruder</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="Modified_E3D_Extruder" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/01d2fbcc2834485e8119504b7a7c4cc1/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Remodeled E3D extruder optimized for utilizing compliant mechanism to give 3D printer a new form of tool changing functionality.</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>3D Casting Model</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe 
+            title="2023_Casting2" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking 
+            execution-while-out-of-viewport 
+            execution-while-not-rendered 
+            web-share 
+            src="https://sketchfab.com/models/4b0795b1fa9d44b29dab208d9d5a95a2/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>A model of a casting concept designed for elevators.</p>
+      </div>
+
+    </div>
+
+    <div class="view-more-wrapper">
+      <p style="margin-top: 1rem; font-style: italic; color: gray;">More models will be added soon — stay tuned.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Solomon Andrews. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
