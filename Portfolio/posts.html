@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posts - Solomon Andrews</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .post-item {
+      background: #f2f2f2;
+      border-radius: 12px;
+      margin: 1.5rem auto;
+      padding: 1.5rem;
+      max-width: 1600px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 1rem;
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+      flex: 1;
+      text-align: left;
+    }
+
+    .post-toggle {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #00509e;
+    }
+
+    .post-content {
+      display: none;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+
+    .post-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .post-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .post-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .post-text {
+      flex: 1;
+      padding: 10px;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      /* Sleek, modern system fonts */
+      font-size: 1.5rem;
+      /* Slightly larger */
+      line-height: 1.75;
+      /* Better readability */
+      color: #333333;
+      /* Dark grey */
+    }
+
+    .post-image {
+      flex: 1;
+    }
+
+    .post-image img {
+      width: 80%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+      /* ✅ This centers the image inside the flex item */
+    }
+
+    .post-item.open .post-content {
+      display: flex;
+    }
+
+    a.launch-link {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #001f3f;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.launch-link:hover {
+      background-color: #00509e;
+    }
+
+    .post-poster {
+      max-width: 100%;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .post-poster img {
+      width: 90%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Add Font Awesome for LinkedIn icon (only once in your <head> if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<header style="background: #001f3f; color: #ffffff; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); position: relative;">
+  <style>
+    .logo {
+      height: 2em;
+      width: auto;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00509e;
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        background: #001f3f;
+      }
+
+      nav.show {
+        max-height: 500px;
+        padding-top: 1rem;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-title {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    /* Optional LinkedIn hover color */
+    nav a .fa-linkedin {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover .fa-linkedin {
+      color: #00509e;
+    }
+  </style>
+
+  <div class="nav-title">
+    <img src="pro_logo.png" alt="Logo" class="logo">
+    Solomon Andrews
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="../index.html">Home</a>
+    <a href="posts.html">Posts</a>
+    <a href="cad.html">My CAD</a>
+    <a href="resume.html">Resume</a>
+    <a href="about.html">About</a>
+    <a href="https://www.linkedin.com/in/solomon-andrews" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+  </nav>
+</header>
+
+
+  <section class="section" id="posts">
+    <h2 class="section-title">POSTS</h2>
+
+    <!-- NASA POST -->
+    <div class="post-item" id="nasa">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="../nasa-logo.png" alt="NASA Logo" class="post-logo" />
+        <p class="post-title">NASA MSFC – GPDM FlatSat V.2 (2022-23)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+      <div class="post-content">
+        <!-- Section 1 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <iframe width="100%" height="333" src="https://www.youtube.com/embed/x3Zit5SArCM"
+              title="Green Propellant Technology Development for SmallSat Propulsion Systems - GPDM FlatSat V.2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="post-text">
+            <p>In the near future, as permanent communities are planned for construction on the moon, the demand for
+              water transportation to and from the lunar surface becomes important. To optimize efficiency and
+              cost-effectiveness, a groundbreaking approach is being undertaken. NASA is utilizing a Lunar Flashlight to
+              orbit the moon and identify significant ice deposits on the dark sides of the moon (lunar south pole) for
+              water extraction.</p>
+            <p>Our objective is to provide the capabilities to keep the Lunar Flashlight mission in lunar orbit and
+              maintain orbit for the duration of its research mission.</p>
+          </div>
+        </div>
+
+        <!-- Poster Section -->
+        <div class="post-poster">
+          <img src="../NASA_POSTER.png" alt="FlatSat POSTER" />
+        </div>
+
+        <!-- Section 2 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <img src="../flatsat.png" alt="FlatSat Design" />
+          </div>
+          <div class="post-text">
+            <p>The FlatSat propulsion system serves as a crucial testing phase for the propulsion system before its
+              integration into the Lunar Flashlight. This platform offers complete openness and accessibility for any
+              necessary modifications, allowing for comprehensive assessment of hardware performance under operational
+              conditions.</p>
+            <p>Our FlatSat design comprises five thrusters enclosed within a vacuum chamber. This includes one 100mN
+              blowdown thruster and four electrospray thrusters.</p>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <img src="../components_nasa.png" alt="Propulsion System Components" />
+          </div>
+          <div class="post-text">
+            <p>The propulsion system's tube manufacturing incorporates various components such as regulators, pressure
+              transducers, flow meters, and flight controllers, all instrumental in verifying the integrity of our
+              designed solution during test operations.</p>
+            <p>These tests encompass evaluations of the new flight controller, the 100mN thruster pulse, system
+              responses across varying pressure levels, the compact pressure regulating system for electrosprays, and
+              more.</p>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/UaaF0IgzGSI?si=tshbYJtF6L0a4y4c"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+          </div>
+          <div class="post-text">
+            <p>The manufacturing of the operational FlatSat design has been completed and assembled within the Lunar
+              Flashlight. On Sunday, December 11 at 2:38 a.m. (ET), SpaceX successfully launched the Lunar Flashlight to
+              a lunar transfer orbit from Space Launch Complex 40 (SLC-40) at Cape Canaveral Space Force Station in
+              Florida.</p>
+            <p>This marked the Falcon 9's fifth launch and landing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END POST -->
+
+    <!-- HONEYWELL POST -->
+    <div class="post-item" id="honeywell">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="../honeywell-logo.png" alt="Honeywell Logo" class="post-logo" />
+        <p class="post-title">Honeywell – Multifunctional AM Tool Changing (2023-24)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+      <div class="post-content">
+
+        <!-- Section 1 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <img src="../e3d.png" alt="E3D ToolChanger" />
+          </div>
+          <div class="post-text">
+            <p>At Honeywell NSC, located in Kansas City, Missouri, I had an invaluable opportunity to shadow and assist
+              lead engineers, gaining hands-on experience in tool and equipment inspection, additive manufacturing, and
+              material studies. This immersive experience allowed me to contribute directly to groundbreaking research
+              and further hone my skills in primarily additive manufacturing and mechanical design engineering.</p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <img src="../5xprinter.png" alt="5axis Printing Method" />
+          </div>
+          <div class="post-text">
+            <p>During my internship, I contributed to cutting-edge research focused on advancing additive manufacturing
+              techniques for nuclear deterrence development. My primary objectives included designing and integrating a
+              new extruder/embedding tool and milling tool into a 4-extruder E3D ToolChanger Printer, ensuring
+              compatibility with printer G-code (Objective A). Additionally, I developed an operational camera metrology
+              module for a 5-Axis 3D printer to analyze print jobs at micron-level precision (Objective B).</p>
+          </div>
+        </div>
+
+        <!-- Poster Section -->
+        <div class="post-poster">
+          <img src="../Slideshow/NSC.jpeg" alt="2023 KSNCS Interns" />
+        </div>
+
+      </div>
+    </div>
+    <!-- END POST -->
+
+    <!-- MAYO POST -->
+    <div class="post-item">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="../mayo-logo.png" alt="Mayo Clinic Logo" class="post-logo" />
+        <p class="post-title">Mayo Clinic – Neurosurgery Suture Pen (2023-24)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+
+      <div class="post-content">
+        <div class="post-image" style="flex: 1; min-width: 300px;">
+          <img src="../Slideshow/IMG_7829 (1).JPG"
+            alt="Neurosurgeon Dr. Alfredo Quiñones-Hinojosa with functional Suture Pen" />
+        </div>
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-text" style="font-size: 1.1rem;">
+            <p><strong>Developed an advanced compact suturing device</strong> designed to improve the speed, precision,
+              and ergonomics of neurosurgical procedures.</p>
+            <ul>
+              <li>Engineered a 360° rotational gearbox mechanism powered by a DC motor, encoder, and proximity sensors,
+                enabling effortless suture deployment and minimizing surgeon fatigue.</li>
+              <li>Designed a single-use, pre-loaded cartridge system for quick needle exchange, combined with an
+                ergonomic, handheld housing optimized for surgical agility.</li>
+              <li>Integrated the device into existing surgical workflows, streamlining wound closure with minimal
+                disruption to standard procedures.</li>
+              <li>Reduced surgical time by up to <strong>40 minutes per procedure</strong>, with potential savings of
+                thousands of dollars per hour in OR costs.</li>
+              <li>Performed extensive risk assessments, human factors evaluations, and design analysis to ensure safety,
+                efficiency, and comfort in high-stakes medical environments.</li>
+            </ul>
+            <p>
+              <a href="https://web1.eng.famu.fsu.edu/me/senior_design/2024/team516/" class="read-more"
+                target="_blank">Click Here To View Official Site</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END POST -->
+    <!-- Intuitive POST -->
+    <div class="post-item">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="intuitive.png" alt="Intuitive Surgical Logo" class="post-logo" />
+        <p class="post-title">Intuitive Surgical – Ted Rogers Intuitive Scholars Award (2023)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+      <div class="post-content">
+
+        <div class="post-poster"
+          style="background: #ffffff; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h4 style="margin: 0;">Featured University News Article</h4>
+          <p style="margin: 0.5rem 0;">Two Engineering Students Receive Ted Rogers-Intuitive Scholars and Fellowship
+            Program Awards</p>
+          <a href="https://eng.famu.fsu.edu/news/two-engineering-students-receive-ted-rogers-intuitive-scholars-and-fellowship-program-awards"
+            target="_blank" class="read-more">
+            Click to Preview Full Article →
+          </a>
+        </div>
+        <div class="post-text">
+          I am honored to be awarded with the Ted Rogers-Intuitive Scholars and Fellowship Program Award, recognizing my
+          work throughout my engineering journey while at FAMU-FSU.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- END POST -->
+    <!-- SANDIA POST -->
+    <div class="post-item">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="../sandia-logo.png" alt="Sandia Logo" class="post-logo" />
+        <p class="post-title">Sandia National Labs – Microfluidic Polymer Proccessing (2024)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+      <div class="post-content">
+
+        <div class="post-poster">
+          <video controls width="70%" style="border-radius: 10px;">
+            <source src="../Microfluidic_Polymer_Processing_Solomon.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-text">
+            This project focuses on the innovative synthesis of Poly(N-isopropylacrylamide) through the use of custom
+            designed glass microfluidic chips. By meticulously purifying monomers and fine-tuning experimental
+            conditions, we've developed a highly efficient method for producing high-quality polymers. Our research
+            highlights the significant influence of flow rate on polymer viscosity, offering new insights into the
+            precision manufacturing of smart materials. Moving forward, we aim to scale up this process and perform
+            advanced characterization to further enhance the application of these polymers in various industries.
+          </div>
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <iframe title="microfluidic_chip" frameborder="0" allowfullscreen mozallowfullscreen="true"
+              webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+              execution-while-out-of-viewport execution-while-not-rendered web-share
+              src="https://sketchfab.com/models/86ec580bba404a1898003a37281cc2b2/embed"
+              style="width: 100%; height: 350px; border-radius: 12px;">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END POST -->
+
+    <!-- FAMU-FSU POST -->
+    <div class="post-item">
+      <div class="post-header" onclick="togglePost(this)">
+        <img src="../famu-fsu-logo.png" alt="FAMU-FSU Logo" class="post-logo" />
+        <p class="post-title">FAMU-FSU – Research Projects (2021-2024)</p>
+        <button class="post-toggle">▼</button>
+      </div>
+      <div class="post-content">
+
+        <!-- Section 1 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <video controls width="100%" style="border-radius: 10px;">
+              <source src="../DEXTER_WEEKLY.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="post-text" style="flex: 1; min-width: 300px;">
+            <p><strong>Compliant CNC Tool-Changing System (2023–2024)</strong></p>
+            <ul>
+              <li>Led the design of a CNC tool-changing system using fully compliant mechanisms — eliminating
+                traditional actuators.</li>
+              <li>Integrated tools such as a Nordson dispensing pump, extruders, and mill heads into a flexible additive
+                setup.</li>
+              <li>Explored the use of augmented reality (AR) with PTC Vuforia for interactive machine training and
+                control.</li>
+              <li>Tested and validated the system’s mechanical performance — enabling future scalability for industrial
+                adoption.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="post-section"
+          style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <img src="../images/lamprey_robot.jpg" alt="Soft Hydraulic Robot" style="width: 100%; border-radius: 12px;">
+          </div>
+          <div class="post-text" style="flex: 1; min-width: 300px;">
+            <p><strong>Soft Lamprey-Inspired Robots (2022–2023)</strong></p>
+            <ul>
+              <li>Designed robotic systems that mimic lamprey movement through fluidic soft actuators.</li>
+              <li>Conducted environmental tests in uncertain conditions, simulating real-world applications.</li>
+              <li>Used model-based controls to replicate biological movement through advanced control logic.</li>
+              <li>Focused on enhancing adaptability and autonomy in soft robotic systems.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="post-section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <video controls width="100%" style="border-radius: 10px;">
+              <source src="../Updated Work of Adhesion.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="post-text" style="flex: 1; min-width: 300px;">
+            <p><strong>Copper Ink Rheology & Adhesion Studies (2021–2023)</strong></p>
+            <ul>
+              <li>Studied surface energy, adhesion force, and rheology of conductive copper-based inks.</li>
+              <li>Developed flexible circuits and experimental 3D-printed solar cells using inkjet technologies.</li>
+              <li>Optimized adhesion properties for wearable electronics and biomedical applications.</li>
+              <li>Contributed to high-precision material testing for multifunctional printed electronics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="post-section"
+          style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
+          <div class="post-image" style="flex: 1; min-width: 300px;">
+            <video controls width="100%" style="border-radius: 10px;">
+              <source src="../EESI Research Fall 2021 Presentation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="post-text" style="flex: 1; min-width: 300px;">
+            <p><strong>Powerless Sensor Systems for Aerospace (2021–2022)</strong></p>
+            <ul>
+              <li>Developed embedded structural health monitoring systems for carbon-fiber composites.</li>
+              <li>Used triboluminescent optical fibers and additive manufacturing to detect mechanical strain.</li>
+              <li>Investigated mechanoluminescence for real-time stress visualization in aircraft components.</li>
+              <li>Enabled smarter diagnostics for long-term aerospace integrity and safety assurance.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- END POST -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Solomon Andrews. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function togglePost(header) {
+      const postItem = header.parentElement;
+      const isOpen = postItem.classList.contains("open");
+
+      document.querySelectorAll('.post-item.open').forEach(item => {
+        if (item !== postItem) item.classList.remove("open");
+      });
+
+      postItem.classList.toggle("open", !isOpen);
+    }
+
+    function openPostByHash() {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const target = document.querySelector(hash);
+      if (target && target.classList.contains('post-item')) {
+        target.classList.add('open');
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", openPostByHash);
+
+
+
+    function toggleMenu() {
+      const nav = document.getElementById('nav-menu');
+      nav.classList.toggle('show');
+    }
+
+  </script>
+
+</body>
+
+</html>

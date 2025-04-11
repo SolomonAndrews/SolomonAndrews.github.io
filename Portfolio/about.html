@@ -1,0 +1,201 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Solomon Andrews</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<!-- Add Font Awesome for LinkedIn icon (only once in your <head> if not already included) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <header style="background: #001f3f; color: #ffffff; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); position: relative;">
+    <style>
+      .logo {
+        height: 2em;
+        width: auto;
+      }
+  
+      .nav-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+  
+      .hamburger {
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
+      }
+  
+      nav {
+        display: flex;
+        gap: 1.2rem;
+      }
+  
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+  
+      nav a:hover {
+        color: #00509e;
+      }
+  
+      @media (max-width: 900px) {
+        .hamburger {
+          display: block;
+        }
+  
+        nav {
+          flex-direction: column;
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-in-out;
+          background: #001f3f;
+        }
+  
+        nav.show {
+          max-height: 500px;
+          padding-top: 1rem;
+        }
+  
+        nav a {
+          padding: 1rem 0;
+          text-align: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+  
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+  
+        .nav-title {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+  
+      /* Optional LinkedIn hover color */
+      nav a .fa-linkedin {
+        color: white;
+        transition: color 0.3s ease;
+      }
+  
+      nav a:hover .fa-linkedin {
+        color: #00509e;
+      }
+    </style>
+  
+    <div class="nav-title">
+      <img src="pro_logo.png" alt="Logo" class="logo">
+      Solomon Andrews
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+  
+    <nav id="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="posts.html">Posts</a>
+      <a href="cad.html">My CAD</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+      <a href="https://www.linkedin.com/in/solomon-andrews" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+    </nav>
+  </header>
+  
+
+  <section class="about-section2">
+    <h2 class="section-title">ABOUT ME</h2>
+    
+    <div class="about-image">
+      <img src="HEADSHOT.png" alt="Headshot of Solomon Andrews">
+    </div>
+
+    <div class="about-text" style="font-size: 1.2rem;">
+      <p>Greetings! I am Solomon Andrews, a Mechanical Engineer and recent graduate of Florida A&M University’s FAMU-FSU College of Engineering. I currently work full-time as a Silicon Wafer Equipment Engineer at Hanwha Qcells, where I oversee machinery maintenance, ensure operational safety, conduct risk assessments, and develop detailed manuals and guides for technicians to safely working with complex equipment.</p>
+    
+      <p>While I value research and innovation, what truly excites me is the art of mechanical design. I love bringing ideas and solutions to life, whether it's 3D printing custom CAD creations, sketching new product concepts, or simply creating solutions to solve real-world problems. To me, engineering is both a science and a form of creative expression.</p>
+    
+      <p>At heart, I’m a creator and a problem-solver who values efficiency. I enjoy exploring new technologies, working hands-on with tools and materials, and collaborating on projects that challenge me to grow. My goal is to thrive in the field of mechanical design, building products that benefit people and improve lives.</p>
+    </div>
+    
+    
+
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>Computer-Aided Design</h3>
+        <ul>
+          <li>PTC Creo (Expert)</li>
+          <li>SolidWorks (Mastered)</li>
+          <li>AutoCAD (Mastered)</li>
+          <li>PTC Vuforia (Beginner)</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Programming & Applications</h3>
+        <ul>
+          <li>Excel W/ VBA & Macros (Expert)</li>
+          <li>C++ (Mastered)</li>
+          <li>HTML/CSS/JAVA (Mastered)</li>
+          <li>MATLAB (Mastered)</li>
+          <li>R (Mastered)</li>
+          <li>LaTex (Mastered)</li>
+          <li>PLC Allen Bradley, Siemens, Etc. (Mastered)</li>
+          <li>Arduino IDE (Mastered)</li>
+          <li>Microsoft Office Suite (Mastered)</li>
+          <li>CNC G-CODE (Intermediate)</li>
+          <li>Python (Beginner)</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Physical Skills & Devices</h3>
+        <ul>
+          <li>GD&T (Expert)</li>
+          <li>Mechanical Design (Expert)</li>
+          <li>UX/HMI/SCADA Systems(Mastered)</li>
+          <li>Microcontroller Projects (Mastered)</li>
+          <li>CNC Machining (Mastered)</li>
+          <li>Circuitry (Mastered)</li>
+          <li>Propulsion Diagrams (Mastered)</li>
+          <li>Microfluidics (Mastered)</li>
+          <li>Additive Manufacturing (Mastered)</li>
+          <li>Medical Device Manufacturing (Mastered)</li>
+          <li>Sheet Metal (Intermediate)</li>
+          <li>Injection Molding Manufacturing (Intermediate)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Solomon Andrews. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
