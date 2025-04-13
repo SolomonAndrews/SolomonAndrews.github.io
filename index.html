@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="Portfolio/style.css">
+</head>
+
+<body>
+  <!-- Add Font Awesome for icons (Place this once in your <head> if not already added) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<header style="background: #001f3f; color: #ffffff; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); position: relative;">
+  <style>
+    .logo {
+      height: 2em;
+      width: auto;
+    }
+
+    .nav-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00509e;
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        background: #001f3f;
+      }
+
+      nav.show {
+        max-height: 500px;
+        padding-top: 1rem;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-title {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .headshot-container {
+        position: relative;
+        margin: 0.5rem auto 0.8rem;
+        left: auto;
+        top: auto;
+        width: 300px;
+        height: 300px;
+        border: 8px solid var(--white);
+        background: var(--light-grey);
+        box-shadow: var(--box-shadow);
+        z-index: 1;
+      }
+
+      .hero {
+        padding: 1rem 1rem;
+        margin: 0 !important;
+        height: auto;
+        min-height: 100px;
+        position: relative;
+        background: var(--light-grey);
+        overflow: hidden;
+      }
+
+      .marquee {
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        transform: none !important;
+        max-width: 100vw;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      .marquee-content {
+        display: flex;
+        width: max-content;
+        animation: marquee-mobile 30s linear infinite;
+      }
+
+      .box {
+        flex-shrink: 0;
+        width: 300px;
+        height: 300px;
+        margin-right: 20px;
+        background: var(--white);
+        border-radius: 16px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .box img {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      .box h3 {
+        position: relative;
+        z-index: 2;
+        margin-top: 170px;
+        margin-bottom: 5px;
+      }
+
+      .box p {
+        position: relative;
+        font-size: 13px;
+        z-index: 2;
+        margin-top: 0;
+        padding: 0 5px;
+      }
+
+      .marquee::before {
+        left: 0;
+        background: linear-gradient(to right, var(--light-grey), transparent);
+      }
+
+      .marquee::after {
+        right: 0;
+        background: linear-gradient(to left, var(--light-grey), transparent);
+      }
+
+      @keyframes marquee-mobile {
+        from {
+          transform: translateX(0%);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    /* Optional icon hover style */
+    nav a .fa-linkedin {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover .fa-linkedin {
+      color: #00509e;
+    }
+  </style>
+
+  <div class="nav-title">
+    <img src="Portfolio/pro_logo.png" alt="Logo" class="logo">
+    Solomon Andrews
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="Portfolio/posts.html">Posts</a>
+    <a href="Portfolio/cad.html">My CAD</a>
+    <a href="Portfolio/resume.html">Resume</a>
+    <a href="Portfolio/about.html">About</a>
+    <a href="https://www.linkedin.com/in/solomon-andrews-9a9080227/" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+  </nav>
+</header>
+
+
+
+
+  <div class="headshot-container">
+    <img src="Portfolio/HEADSHOT.png" alt="Headshot of Solomon Andrews">
+  </div>
+
+  <section class="hero">
+    <div class="marquee">
+      <div class="marquee-content">
+        <!-- Original 6 boxes -->
+        <div class="box">
+          <img src="nasa-logo.png" alt="NASA Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Mechanical Design Engineer</h3>
+          <p>Designed and integrated FLATSAT propulsion system for lunar flashlight, contributing to lunar missions
+            launched via SpaceX Falcon 9.</p>
+        </div>
+
+        <div class="box">
+          <img src="sandia-logo.png" alt="Sandia Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>R&D Chemical Engineer</h3>
+          <p>Designing microfluidic chips and leveraging nanotechnology to enhance polymer processing efficiency.</p>
+        </div>
+
+        <div class="box">
+          <img src="honeywell-logo.png" alt="Honeywell Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Mechanical Design Engineer</h3>
+          <p>Developed precision multi-extruder 3D printing systems, camera metrology modules, and automated G-code
+            processes.</p>
+        </div>
+
+        <div class="box">
+          <img src="mayo-logo.png" alt="Mayo Clinic Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Product Design Engineer</h3>
+          <p>Created compact suturing device, significantly improving neurosurgery efficiency and operating room
+            workflows.</p>
+        </div>
+
+        <div class="box">
+          <img src="famu-fsu-logo.png" alt="FAMU-FSU Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Student Researcher</h3>
+          <p>Led multi-year research in soft robotics, CNC systems, aerospace sensors, and advanced materials.</p>
+        </div>
+
+        <div class="box">
+          <img src="qcells-logo.png" alt="Qcells Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Silicon Wafer Equipment Engineer</h3>
+          <p>Optimizing solar wafer manufacturing through PLC automation, risk assessments/maintenance guides, and SCADA
+            system enhancements.</p>
+        </div>
+
+        <!-- Duplicate 6 boxes again for seamless looping -->
+        <div class="box">
+          <img src="nasa-logo.png" alt="NASA Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Mechanical Design Engineer</h3>
+          <p>Designed and integrated FLATSAT propulsion system for lunar flashlight, contributing to lunar missions
+            launched via SpaceX Falcon 9.</p>
+        </div>
+
+        <div class="box">
+          <img src="sandia-logo.png" alt="Sandia Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>R&D Chemical Engineer</h3>
+          <p>Designing microfluidic chips and leveraging nanotechnology to enhance polymer processing efficiency.</p>
+        </div>
+
+        <div class="box">
+          <img src="honeywell-logo.png" alt="Honeywell Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Mechanical Design Engineer</h3>
+          <p>Developed precision multi-extruder 3D printing systems, camera metrology modules, and automated G-code
+            processes.</p>
+        </div>
+
+        <div class="box">
+          <img src="mayo-logo.png" alt="Mayo Clinic Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Product Design Engineer</h3>
+          <p>Created compact suturing device, significantly improving neurosurgery efficiency and operating room
+            workflows.</p>
+        </div>
+
+        <div class="box">
+          <img src="famu-fsu-logo.png" alt="FAMU-FSU Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Student Researcher</h3>
+          <p>Led multi-year research in soft robotics, CNC systems, aerospace sensors, and advanced materials.</p>
+        </div>
+
+        <div class="box">
+          <img src="qcells-logo.png" alt="Qcells Logo" class="box-img" style="width:140px; height:140px;">
+          <h3>Silicon Wafer Equipment Engineer</h3>
+          <p>Optimizing solar wafer manufacturing through PLC automation, risk assessments/maintenance guides, and SCADA
+            system enhancements.</p>
+        </div>
+
+        <!-- Copy/paste your boxes again exactly here -->
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section split-about" id="about">
+    <div class="left-column">
+      <div class="title-wrapper">
+        <span class="title-bar"></span>
+        <h2 class="section-title1">Mechanical Engineer</h2>
+      </div>
+      <div class="about-box">
+        <p style="font-size: 1.1rem;">
+          My name is Solomon Andrews. I am a recent Mechanical Engineering graduate from the FAMU-FSU College of
+          Engineering, with a journey marked by a passion for innovation and a track record of success, including
+          awards, certifications, and impactful research experiences.<br><br>
+          Throughout my academic career, I have honed my skills in additive manufacturing, electronics, programming,
+          propulsion systems, material science, biotech, and mechanical design. Internships and research roles at
+          esteemed institutions like Honeywell KCNSC, NASA MSFC, Mayo Clinic, FAMU-FSU HPMI, and FAMU-FSU AME have
+          enriched my practical insights and skills. I am eager to apply my knowledge and creativity to solve real-world
+          challenges.<br><br>
+          Let's connect and explore the intersection of passion, skills, and solutions in the dynamic world of
+          engineering!
+        </p>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="slideshow-container">
+        <img class="slide" src="Slideshow/IMG_0124.PNG" alt="Project Image 1">
+        <img class="slide" src="Slideshow/IMG_4231.png" alt="Project Image 2">
+        <img class="slide" src="Slideshow/NSC.jpeg" alt="Project Image 3">
+        <img class="slide" src="Slideshow/IMG_7829 (1).JPG" alt="Project Image 4">
+        <img class="slide" src="Slideshow/IMG_1194.JPG" alt="Project Image 5">
+        <img class="slide" src="Slideshow/IMG_0123.PNG" alt="Project Image 6">
+        <img class="slide" src="Slideshow/IMG_8860.png" alt="Project Image 7">
+        <img class="slide" src="Slideshow/3_E.jpeg" alt="Project Image 8">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-posts">
+    <h2 class="section-title">FEATURED POSTS</h2>
+    <div class="portfolio">
+
+      <!-- Post 1 -->
+      <div class="portfolio-item">
+        <img src="honeywell-logo.png" alt="Honeywell Logo" class="post-img">
+        <h3>Honeywell KC National Security Campus Internship</h3>
+        <p>From June to August 2023, I interned at Honeywell's National Security Campus, researching new additive
+          manufacturing methods for nuclear deterrence development.</p>
+        <a href="Portfolio/posts.html#honeywell" class="read-more">Click Here to Learn More</a>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="portfolio-item">
+        <img src="Portfolio/intuitive.png" alt="Intuitive Surgical" class="post-img">
+        <h3>Ted Rogers Intuitive Scholar Award</h3>
+        <p>On July 25, 2023, I was honored with the Ted Rogers-Intuitive Scholars and Fellowship Program Award,
+          recognizing my work throughout my engineering journey while at FAMU-FSU.</p>
+        <a href="https://eng.famu.fsu.edu/news/two-engineering-students-receive-ted-rogers-intuitive-scholars-and-fellowship-program-awards"
+          class="read-more">Click Here to Learn More</a>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="portfolio-item">
+        <img src="nasa-logo.png" alt="NASA Logo" class="post-img">
+        <h3>NASA Marshall Space Flight Center Internship</h3>
+        <p>In the summer of 2022, I contributed to the "Green Propellant Technology Development for SmallSat Propulsion
+          Systems" project at NASA MSFC.</p>
+        <a href="Portfolio/posts.html#nasa" class="read-more">Click Here to Learn More</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="view-more-wrapper">
+    <a href="Portfolio/posts.html" class="view-more-btn">View All Posts</a>
+  </div>
+
+
+  <section class="section" id="cad">
+    <h2 class="section-title">MECHANICAL DESIGN PORTFOLIO</h2>
+    <div class="portfolio">
+
+      <div class="portfolio-item">
+        <h3>3D Casting Model</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="2023_Casting2" frameborder="0" allowfullscreen mozallowfullscreen="true"
+            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+            execution-while-out-of-viewport execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/4b0795b1fa9d44b29dab208d9d5a95a2/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Interactive model of a casting concept designed in CAD software.</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Microfluidic Chip</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="microfluidic_chip" frameborder="0" allowfullscreen mozallowfullscreen="true"
+            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+            execution-while-out-of-viewport execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/86ec580bba404a1898003a37281cc2b2/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Custom microfluidic chip designed for advanced polymer research at Sandia Labs.</p>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Sheet Metal Test Part</h3>
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="2023_SHEETMETAL_TESTPART" frameborder="0" allowfullscreen mozallowfullscreen="true"
+            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+            execution-while-out-of-viewport execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/f2f2a31310ec4ee8b0554239452b3b9c/embed"
+            style="width: 100%; height: 350px; border-radius: 12px;">
+          </iframe>
+        </div>
+        <p>Sheet metal design with complex cutouts and bend allowances for fabrication testing.</p>
+      </div>
+
+      <!-- Add more models here as needed -->
+
+    </div>
+
+    <div class="view-more-wrapper">
+      <a href="Portfolio/cad.html" class="view-more-btn">View More Designs</a>
+    </div>
+
+
+  </section>
+
+
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form action="https://formspree.io/f/xzzeyqrv" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 Solomon Andrews. All rights reserved.</p>
+  </footer>
+</body>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+    });
+    slides[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  setInterval(nextSlide, 4000);
+  showSlide(currentSlide);
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('show');
+  }
+
+
+</script>
+
+</html>
