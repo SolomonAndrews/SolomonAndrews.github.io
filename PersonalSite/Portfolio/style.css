@@ -607,4 +607,76 @@ footer {
     margin-top: 2rem;
   }
 
+  /* ========================================= */
+/* ✅ EXTRA SMALL DEVICES (iPhone 15, etc.) */
+/* ========================================= */
+@media (max-width: 420px) {
+
+  html, body {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .nav-title {
+    font-size: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .nav-title img.logo {
+    height: 1.4em;
+  }
+
+  .section-title,
+  .section-title1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .portfolio-item {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .download-btn,
+  .view-more-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    min-width: 180px;
+  }
+
+  .resume-container iframe,
+  .sketchfab-embed-wrapper iframe {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .post-img {
+    max-height: 120px;
+  }
+
+  .logo {
+    height: 1.4em;
+  }
+
+  .hamburger {
+    font-size: 1.6rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  nav a i.fa-linkedin {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+}
+
   
