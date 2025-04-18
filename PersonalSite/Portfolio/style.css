@@ -607,25 +607,61 @@ footer {
     margin-top: 2rem;
   }
 
-  /* ========================================= */
+/* ========================================= */
 /* ✅ EXTRA SMALL DEVICES (iPhone 15, etc.) */
 /* ========================================= */
 @media (max-width: 420px) {
-
   html, body {
     font-size: 15px;
     line-height: 1.4;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .nav-title {
     font-size: 1.25rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
   }
 
   .nav-title img.logo {
     height: 1.4em;
+  }
+
+  .hamburger {
+    display: none !important; /* Hide hamburger icon */
+  }
+
+  nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    width: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    gap: 0.6rem !important;
+    padding: 0 !important;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.9rem;
+    border: none !important;
+    white-space: nowrap;
+  }
+
+  nav a i.fa-linkedin {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  #nav-menu.show {
+    max-height: none;
   }
 
   .section-title,
@@ -664,19 +700,4 @@ footer {
   .logo {
     height: 1.4em;
   }
-
-  .hamburger {
-    font-size: 1.6rem;
-  }
-
-  nav a {
-    font-size: 1rem;
-  }
-
-  nav a i.fa-linkedin {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-  }
 }
-
-  
