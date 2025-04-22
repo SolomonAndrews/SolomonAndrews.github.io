@@ -607,97 +607,78 @@ footer {
     margin-top: 2rem;
   }
 
-/* ========================================= */
-/* ✅ EXTRA SMALL DEVICES (iPhone 15, etc.) */
-/* ========================================= */
-@media (max-width: 420px) {
-  html, body {
-    font-size: 15px;
-    line-height: 1.4;
-    max-width: 100%;
-    overflow-x: hidden;
+  @media (max-width: 900px) {
+    /* Layout header with title on the left and hamburger on the right */
+    header {
+      display: flex !important;
+      justify-content: space-between !important; /* push title to left */
+      align-items: center !important;
+      position: relative !important;
+      height: 60px;      /* keep your fixed height */
+      padding: 0 1rem;   /* horizontal padding only */
+    }
+  
+    /* Ensure the logo + name sit naturally at the left */
+    .nav-title {
+      position: static !important; /* flow normally in flex */
+      margin: 0;                   /* remove any unwanted margins */
+      font-size: 1.5rem !important;
+      white-space: nowrap;         /* prevent wrapping */
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;                 /* small spacing between logo & text */
+    }
+  
+    /* Hamburger stays pinned to right, vertically centered */
+    .hamburger {
+      display: block !important;
+      position: absolute !important;
+      top: 50% !important;
+      right: 1rem !important;
+      transform: translateY(-50%) !important;
+      background: none !important;
+      border: none !important;
+      font-size: 1.8rem !important;
+      color: white !important;
+      cursor: pointer !important;
+      z-index: 20 !important;
+    }
+  
+    /* Hide the nav by default, reveal on .show */
+    #nav-menu {
+      display: none !important;
+      flex-direction: column;
+      background: var(--navy-blue);
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      z-index: 10;
+    }
+    #nav-menu.show {
+      display: flex !important;
+    }
+    #nav-menu a {
+      display: block;
+      padding: 1rem;
+      color: white;
+      text-decoration: none;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+  
+    /* ...your other phone‑screen tweaks here... */
+    .download-btn,
+    .view-more-btn,
+    .read-more,
+    a.launch-link,
+    .contact-form button {
+      padding: 0.5rem 1rem !important;   /* smaller tap target */
+      font-size: 0.9rem !important;      /* smaller text */
+      min-width: auto !important;        /* remove any forced width */
+    }
   }
-
-  .nav-title {
-    font-size: 1.25rem;
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  .nav-title img.logo {
-    height: 1.4em;
-  }
-
-  .hamburger {
-    display: none !important; /* Hide hamburger icon */
-  }
-
-  nav {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    width: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    background: transparent !important;
-    gap: 0.6rem !important;
-    padding: 0 !important;
-    justify-content: flex-end;
-  }
-
-  nav a {
-    padding: 0.5rem 0.3rem;
-    font-size: 0.9rem;
-    border: none !important;
-    white-space: nowrap;
-  }
-
-  nav a i.fa-linkedin {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-  }
-
-  #nav-menu.show {
-    max-height: none;
-  }
-
-  .section-title,
-  .section-title1 {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .portfolio-item {
-    padding: 0.8rem;
-    font-size: 0.95rem;
-  }
-
-  .download-btn,
-  .view-more-btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    min-width: 180px;
-  }
-
-  .resume-container iframe,
-  .sketchfab-embed-wrapper iframe {
-    height: auto;
-    max-height: 300px;
-  }
-
-  .about-text {
-    font-size: 0.95rem;
-    padding: 0 0.5rem;
-  }
-
-  .post-img {
-    max-height: 120px;
-  }
-
-  .logo {
-    height: 1.4em;
-  }
-}
+  
+  
