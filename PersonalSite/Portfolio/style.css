@@ -680,5 +680,32 @@ footer {
       min-width: auto !important;        /* remove any forced width */
     }
   }
-  
+
+  /* MakerWorld Profile Button */
+.makerworld-link {
+  margin-top: 2rem;
+}
+
+.makerworld-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #3ccb57;        /* MakerWorld orange-ish */
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.makerworld-btn:hover {
+  background: #37ac7d;
+}
+
+.makerworld-logo {
+  height: 2em; /* Matches the height of the text */
+  width: auto;
+}
+
   
