@@ -63,14 +63,16 @@
     nav a:hover .fa-linkedin {
       color: #00509e;
     }
-    
+
     @media (max-width: 600px) {
   .resume-container iframe {
-    aspect-ratio: 1 / 1.414 !important; /* roughly A4 portrait */
-    height: auto !important;            /* let it size itself */
-    max-height: 80vh !important;        /* cap it so you can still scroll if needed */
+    width: 100% !important;          /* full width of the screen */
+    height: auto !important;         /* let it size itself */
+    max-height: 100vh !important;    /* so you can still scroll if needed */
+    aspect-ratio: 1 / 1.414 !important; /* portrait A4 shape */
   }
 }
+
 
   </style>
 
@@ -97,7 +99,7 @@
     <h2 class="section-title">RESUME</h2>
 
     <div class="resume-container">
-      <iframe src="S_Andrews_Resume_2025.pdf#view=FitH" frameborder="0"></iframe>
+      <iframe src="S_Andrews_Resume_2025.pdf#view=Fit" frameborder="0"></iframe>
     </div>
 
     <a class="download-btn" href="S_Andrews_Resume_2025.pdf" download="Solomon_Andrews_Resume.pdf">
